@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kelompok 2</title>
+  
+  <style>
+    /* Reset dan styling dasar */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: rgba(0,0,0,0.3);
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background-color: rgba(0,0,0,0.2);
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    nav button {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    nav button.active,
+    nav button:hover {
+      background-color: #fff;
+      color: #764ba2;
+      border-color: #764ba2;
+    }
+    main {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: rgba(0,0,0,0.4);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    }
+    section {
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    /* Tentang Kami dengan foto */
+    .team {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .member {
+      text-align: center;
+      max-width: 180px;
+    }
+    .member img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .member img:hover {
+      transform: scale(1.05);
+    }
+    .member h3 {
+      margin: 0.5rem 0 0.2rem;
+      font-size: 1.2rem;
+    }
+    .member p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+    /* Proyek */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1.5rem;
+    }
+    /* Link proyek yang bisa diklik */
+    .project-card-link {
+      display: block;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: inherit;
+    }
+    .project-card-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+      text-decoration: none;
+    }
+    .project-card-link:hover h3 {
+      text-decoration: underline;
+    }
+    /* Kartu proyek */
+    .project-card {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      cursor: default;
+    }
+    .project-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: #ffd700;
+    }
+    .project-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #eee;
+    }
+    /* Kontak */
+    .contact-info {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    /* Email putih dan tidak bisa diklik */
+    .contact-info .email {
+      color: #fff;
+      user-select: text;
+      cursor: default;
+      text-decoration: none;
+    }
+    /* Instagram kuning dan bisa diklik */
+    .contact-info a.instagram-link {
+      color: #ffd700;
+      text-decoration: none;
+    }
+    .contact-info a.instagram-link:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(0,0,0,0.3);
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: auto;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav button {
+        flex: 1 1 45%;
+        margin-bottom: 0.5rem;
+      }
+      .team {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="C:\Users\REST2\Downloads\Logo_SMK_Muda_PKU_Fix.png" alt="Icon" width="50" height="50">
+    <h1>Portofolio Kelompok 2</h1>
+  </header>
+  <nav>
+    <button class="active" data-target="about">Tentang Kami</button>
+    <button data-target="projects">Proyek</button>
+    <button data-target="contact">Kontak</button>
+  </nav>
+  <main>
+    <section id="about" class="active">
+      <h2>Tentang Kami</h2>
+      <p>Kami adalah kelompok siswa kelas XI yang bersemangat dalam pengembangan web dan desain digital.</p>
+      <div class="team">
+        <div class="member">
+          <img src="c:\Users\REST2\Downloads\Gambar WhatsApp 2025-09-18 pukul 17.11.06_b26b89c5.jpg" alt="Foto Nama 1" />
+          <h3>Razak rasyid</h3>
+          <p>Frontend Developer</p>
+        </div>
+        <div class="member">
+          <img src="c:\Users\REST2\Downloads\Gambar WhatsApp 2025-09-18 pukul 17.51.36_8632732f.jpg" alt="Foto Nama 2" />
+          <h3>Zahra aziffah</h3>
+          <p>UI/UX Designer</p>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <h2>Proyek Kami</h2>
+    
+        <a href="file:///C:/Users/REST2/OneDrive/Documents/Website%20Sekolah/webite%20sekolah%202.html" target="_blank" class="project-card-link">
+          <div class="project-card">
+            <h3>Website Sekolah</h3>
+            <p>Membuat website sekolah yang responsif dan informatif menggunakan HTML, CSS, dan JavaScript.</p>
+          </div>
+        </a>
+        <a href="file:///C:/Users/REST2/OneDrive/Documents/Porto%20folio%20kelompok%202/Portofolio.html" target="_blank" class="project-card-link">
+          <div class="project-card">
+            <h3>Portofolio Digital</h3>
+            <p>Membuat website portofolio pribadi dengan desain modern dan responsif menggunakan HTML, CSS, dan JavaScript.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Kontak</h2>
+      <div class="contact-info">
+        <p>Email: <span class="email">ojakrasyid@gmail.com</span></p>
+        <p>Email: <span class="email">zahraaziffah@gmail.com</span></p>
+        <p>Instagram: <a href="https://www.instagram.com/_ojakks" target="_blank" class="instagram-link">@_ojakks</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/zahra_azifah" target="_blank" class="instagram-link">@zahra_azifah</a></p>
+        <p>Telepon: 0821-7343-0410</p>
+        <p>Telepon: 0812-7516-5137</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 Kelompok 2 - SMK Muda Pekanbaru
+  </footer>
+
+  <script>
+    // Script navigasi tab interaktif
+    const buttons = document.querySelectorAll('nav button');
+    const sections = document.querySelectorAll('main section');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Hapus active class dari semua tombol dan section
+        buttons.forEach(btn => btn.classList.remove('active'));
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        // Tambah active class pada tombol dan section yang dipilih
+        button.classList.add('active');
+        const target = button.getAttribute('data-target');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
